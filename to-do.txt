@@ -1,0 +1,7 @@
+start at step 9 after completing the first two lines below and restart js files:
+
+
+use id=codingbootcamp as bandsintown api key.
+need to get spotify api key and update files with it.
+write code, figure out how the different files link together.
+learn markdown (there is link in readme file), and write a proper readme.md.
