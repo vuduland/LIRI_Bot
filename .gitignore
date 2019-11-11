@@ -1,7 +1,8 @@
 node_modules
 .DS_Store
 .env
-homework_instructions.md
+package.json
 old
+homework_instructions.md
 blah.json
 
