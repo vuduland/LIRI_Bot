@@ -2,7 +2,7 @@ require('dotenv').config();
 require('fs');
 //8. can access your keys information with this:
 // var Spotify = require('node-spotify-api');
-var keys = require('./keys.js');
+var keys = require('../keys.js');
 // var keys = 
 var spotifyThisSong = process.argv[1];
 var songName = process.argv[2];
