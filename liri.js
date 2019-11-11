@@ -23,7 +23,7 @@ var client_secret = spot.secret; // Your secret
 var authOptions = {
     url: 'https://accounts.spotify.com/api/token',
     headers: {
-        'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).toString('base64'))
+        'Authorization': 'Basic ' + (new Buffer.from(client_id + ':' + client_secret).JSON.stringify('base64'))
     },
     form: {
         grant_type: 'client_credentials'
@@ -48,8 +48,13 @@ request.post(authOptions, function (error, response, body) {
             if (error) {
                 return console.log(error);
             }
-            console.log(response);
+            console.log(JSON.stringify(response));
             console.log(body);
         });
     }
 });
+
+$ajax.get(authOptions){
+    console.log(response);
+    console.log(authOptions);
+}

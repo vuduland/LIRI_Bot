@@ -33,9 +33,10 @@ request.post(authOptions, function (error, response, body) {
     // use the access token to access the Spotify Web API
     var token = body.access_token;
     var options = {
-      url: 'https://api.spotify.com/v1/search?q=' + songName + '&type=track&market=US&limit=10',
+      uri: 'https://api.spotify.com/v1/search?q=' + songName + '&type=track&market=US&limit=10',
       headers: {
-        'Authorization': 'Bearer ' + token
+        'Authorization': 'Bearer ' + token,
+        'access-control-allow-origin': '*'
       },
       json: true
     };
@@ -44,8 +45,12 @@ request.post(authOptions, function (error, response, body) {
       if (error) {
         return console.log(error);
       }
-      console.log(response);
-      console.log(body);
+      console.log(response.uri);
+      var boody = JSON.stringify(body);
+      // console.log(boody);
+      // console.log(boody.search(RegExp = "'name':" | RegExp));
+      console.log(boody[91]);
+      console.log(boody.split["," , 5])
     });
   }
 });
