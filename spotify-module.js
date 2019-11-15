@@ -1,13 +1,15 @@
-require('dotenv').config({ path: '.env' });
 const Spotify = require('node-spotify-api');
 const Keys = require('./keys.js');
 
-const SPOT = new Spotify(Keys.spotify);
+const spotify = new Spotify();
+const cred = spotify.credentials(Keys);
+// const keys = spotify.credentials(Keys);
 
-SPOT.search({ type: 'track', query: ' ' }, function(err, data) {
+spotify(cred).search({ type: 'track', query: 'Blow' }, function(err, data) {
   if (err) {
     return console.log(`Error occurred: ${err}`);
   }
+
   // console.log(data.tracks.items[1]);
   console.log(`artists: ${data.tracks.items[1].album.artists[0].name}`);
   console.log(`preview url: ${data.tracks.items[1].preview_url}`);
@@ -15,4 +17,4 @@ SPOT.search({ type: 'track', query: ' ' }, function(err, data) {
   console.log(`album name: ${data.tracks.items[1].album.name}`);
 });
 
-module.exports(SPOT.search());
+module.exports = spotify.search();

@@ -1,15 +1,16 @@
 /* eslint-disable no-use-before-define */
 // require('dotenv').config({ path: '.env' });
 const axios = require('axios');
-// const Spotify = require('node-spotify-api');
+const Spotify = require('node-spotify-api');
 const FS = require('file-system');
 const keys = require('./keys.js');
 const OMDB = require('./omdb-module.js');
-const SPOT = require('./spotify-module');
+const spotify = require('./spotify-module');
 const BANDS = require('./bands-module');
 
+const SPOT = new Spotify(keys.spotify);
 const Omdb = new OMDB();
-const Spot = new SPOT();
+// const Spot = new SPOT();
 const Bands = new BANDS();
 const Fs = new FS();
 
@@ -30,7 +31,7 @@ function searchInput(search) {
       break;
     case 'spotify-this-song':
       console.log('test2');
-      Spot();
+      SPOT();
       if (!search) {
         console.log(
           'Missing search parameter; Re-Enter search parameter "spoty-this-song"'
