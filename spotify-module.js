@@ -1,11 +1,11 @@
 
-var Spotify = require('node-spotify-api');
 require('dotenv').config();
+var Spotify = require('node-spotify-api');
+
 var key = require('./keys');
 
 var spotify = new Spotify(key.spotify);
-
-spotify.search({ type: 'track', query: 'Blow' }, function(err, data) {
+spotify.search({type:'track', query:'Blow'}, function(err, data) {
   if (err) {
     return console.log(`Error occurred: ${err}`);
   }
@@ -17,4 +17,4 @@ spotify.search({ type: 'track', query: 'Blow' }, function(err, data) {
   console.log(`album name: ${data.tracks.items[1].album.name}`);
 });
 
-module.exports = spotify.search();
+// module.exports = spotify.search();
