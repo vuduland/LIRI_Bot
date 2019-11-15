@@ -1,11 +1,11 @@
-const Spotify = require('node-spotify-api');
-const Keys = require('./keys.js');
 
-const spotify = new Spotify();
-const cred = spotify.credentials(Keys);
-// const keys = spotify.credentials(Keys);
+var Spotify = require('node-spotify-api');
+require('dotenv').config();
+var key = require('./keys');
 
-spotify(cred).search({ type: 'track', query: 'Blow' }, function(err, data) {
+var spotify = new Spotify(key.spotify);
+
+spotify.search({ type: 'track', query: 'Blow' }, function(err, data) {
   if (err) {
     return console.log(`Error occurred: ${err}`);
   }
