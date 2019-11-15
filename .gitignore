@@ -1,7 +1,6 @@
 /node_modules
 .DS_Store
 .env
-package.json
 
 homework_instructions.md
 blah.json
