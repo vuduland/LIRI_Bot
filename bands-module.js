@@ -19,7 +19,6 @@ var BANDS = function () {
     axios
       .get(queryURL)
       .then(function (response) {
-        console.log(JSON.stringify(response.data[0]) + 'response');
         console.log('================================================'),
           console.log('\nVenue: ' + response.data[0].venue.name),
           console.log('\nLocale: ' + response.data[0].venue.city),
