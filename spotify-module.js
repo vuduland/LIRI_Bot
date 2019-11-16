@@ -1,9 +1,8 @@
-/* eslint-disable prefer-const */
 require('dotenv').config();
-const Spotify = require('node-spotify-api');
-const key = require('./keys');
+var Spotify = require('node-spotify-api');
+var key = require('./keys');
 
-let spotify = new Spotify(key.spotify);
+var spotify = new Spotify(key.spotify);
 function GetSong(search) {
   this.search = search;
 
@@ -19,5 +18,3 @@ function GetSong(search) {
   });
 }
 
-// module.exports = spotify.search();
-module.exports = new GetSong();

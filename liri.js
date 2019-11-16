@@ -1,4 +1,3 @@
-/* eslint-disable no-use-before-define */
 require('dotenv').config({ path: '.env' });
 
 const Spotify = require('node-spotify-api');
