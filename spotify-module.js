@@ -5,7 +5,7 @@ var key = require('./keys');
 var spotify = new Spotify(key.spotify);
 
 var GET = function () {
-  this.GetSong = function (search) {
+  this.getSong = function (search) {
     spotify.search({ type: 'track', query: search }, function (err, data) {
       if (err) {
         return console.log(`Error occurred: ${err}`);
@@ -16,7 +16,8 @@ var GET = function () {
       console.log(`external url: ${data.tracks.items[1].external_urls.spotify}`);
       console.log(`album name: ${data.tracks.items[1].album.name}`);
     });
+    // console.log(err.config);
   };
 };
-
+// console.log(GetSong('over the hills and far away'));
 module.exports = GET;
