@@ -1,7 +1,7 @@
 var axios = require('axios');
 
 var nodeArgs = process.argv;
-var movieName = '';
+var movieName = ' ';
 
 for (var i = 2; i < nodeArgs.length; i++) {
   if (i > 2 && i < nodeArgs.length) {
@@ -10,7 +10,7 @@ for (var i = 2; i < nodeArgs.length; i++) {
     movieName += nodeArgs[i];
   }
 }
-var OMDB = function (search) {
+var OMDB = function () {
   this.getMovie = function (search) {
     var queryURL = `http://www.omdbapi.com/?t=${movieName}&y=&plot=short&apikey=trilogy`;
     axios

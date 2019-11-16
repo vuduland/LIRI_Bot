@@ -14,52 +14,52 @@ var fs = new FS();
 var search = process.argv[2];
 var searchTwo = process.argv[3];
 
-function searchInput(search, search2) {
-  switch (search) {// (search && search2) || search ^ search2
-    // search and search2 OR !search and search2 OR search and !search2 === (search && search2) || (!search && search2) || (search && !search2)
-    case 'movie-this':
-      console.log('test');
-      omdb.getMovie("'" + search2 + "'");
-      if (search !== search2) {
-        console.log(
-          'Missing search parameter; Re-Enter search parameter "movie-this"'
-        );
-      }
-      break;
-    case 'spotify-this-song':
-      console.log('test2');
-      get.getSong(search2);
-      if (!search) {
-        console.log(
-          'Missing search parameter; Re-Enter search parameter "spoty-this-song"'
-        );
-      }
-      break;
-    case 'concert-this':
-      console.log('test3');
-      bands.bandsintown(search2);
-      if (search !== search2) {
-        console.log(
-          'Missing search parameter; Re-Enter search parameter "omdb-this"'
-        );
-      }
-      break;
-    case 'call-from-file':
-      console.log('test4');
-      fs.callFromFile();
-      if (!search) {
-        console.log(
-          'Missing search parameter; Re-Enter search parameter "call-from-file"'
-        );
-      }
-      break;
-    default:
+
+switch (search) {// (search && searchTwo) || search ^ searchTwo
+  // search and searchTwo OR !search and searchTwo OR search and !searchTwo === (search && searchTwo) || (!search && searchTwo) || (search && !searchTwo)
+  case 'movie-this':
+    console.log('test');
+    omdb.getMovie(searchTwo);
+    // if (search !== searchTwo) {
+    //   console.log(
+    //     'Missing search parameter; Re-Enter search parameter "movie-this"'
+    //   );
+    // }
+    break;
+  case 'spotify-this-song':
+    console.log('test2');
+    get.getSong(searchTwo);
+    if (!search) {
       console.log(
-        'Error: Re-enter search with parameters: "omdb-this", "spotify-this-song", "concert-this" or "call-from-file"'
+        'Missing search parameter; Re-Enter search parameter "spotify-this-song"'
       );
-      break;
-  }
+    }
+    break;
+  case 'concert-this':
+    console.log('test3');
+    bands.bandsintown(searchTwo);
+    if (!search) {
+      console.log(
+        'Missing search parameter; Re-Enter search parameter "concert-this"'
+      );
+    }
+    break;
+  case 'call-from-file':
+    console.log('test4');
+    fs.callFromFile();
+    if (!search) {
+      console.log(
+        'Missing search parameter; Re-Enter search parameter "call-from-file"'
+      );
+    }
+    break;
+  default:
+    console.log(
+      'Error: Re-enter search with parameters: "omdb-this", "spotify-this-song", "concert-this" or "call-from-file"'
+    );
+    break;
 }
-searchInput(searchOne, searchTwo);
+
+
 
 
