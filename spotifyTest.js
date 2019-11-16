@@ -1,52 +1,48 @@
 /* eslint-disable no-use-before-define */
+/* eslint-disable no-bitwise */
+/* eslint-disable prefer-const */
 require('dotenv').config({ path: '.env' });
-
-const Spotify = require('node-spotify-api');
 const FS = require('file-system');
-const keys = require('./keys.js');
+// const GET = require('./spotify-module');
 const OMDB = require('./omdb-module.js');
-const spotify = require('./spotify-module').default;
 const BANDS = require('./bands-module');
 
-const SPOT = new Spotify(keys.spotify);
-const Omdb = new OMDB();
-// const Spot = new SPOT();
-const Bands = new BANDS();
+// let getSong = new GET();
+const omdb = new OMDB();
+const bands = new BANDS();
 const Fs = new FS();
 
 const searchOne = process.argv[2];
-// const searchTwo = process.argv[3];
+const searchTwo = process.argv[3];
 
-function searchInput(search) {
-  switch (search) {
-    case 'omdb-this':
+function searchInput(search, search2) {
+  switch ((search && search2) || search ^ search2) {
+    // search and search2 OR !search and search2 OR search and !search2 === (search && search2) || (!search && search2) || (search && !search2)
+    case 'movie-this':
       console.log('test');
-      Omdb();
+      omdb();
       if (!search) {
         console.log(
           'Missing search parameter; Re-Enter search parameter "movie-this"'
         );
-        searchInput();
       }
       break;
-    case 'spotify-this-song':
-      console.log('test2');
-      SPOT();
-      if (!search) {
-        console.log(
-          'Missing search parameter; Re-Enter search parameter "spoty-this-song"'
-        );
-        searchInput();
-      }
-      break;
-    case 'concert-this':
+    // case 'spotify-this-song':
+    //   console.log('test2');
+    //   GET(search2);
+    //   if (!search) {
+    //     console.log(
+    //       'Missing search parameter; Re-Enter search parameter "spoty-this-song"'
+    //     );
+    // }
+    // break;
+    case 'omdb-this':
       console.log('test3');
-      Bands();
       if (!search) {
         console.log(
           'Missing search parameter; Re-Enter search parameter "omdb-this"'
         );
-        searchInput();
+        bands();
       }
       break;
     case 'call-from-file':
@@ -62,11 +58,11 @@ function searchInput(search) {
       console.log(
         'Error: Re-enter search with parameters: "omdb-this", "spotify-this-song", "concert-this" or "call-from-file"'
       );
-      searchInput();
+      // searchInput();
       break;
   }
 }
-searchInput(searchOne);
+searchInput(searchOne, searchTwo);
 
 function callFromFile() {
   Fs.readFile('random.txt', 'utf8', function(err, data) {
@@ -78,4 +74,4 @@ function callFromFile() {
     searchInput(fSearch);
   });
 }
-callFromFile();
+console.log(callFromFile());
