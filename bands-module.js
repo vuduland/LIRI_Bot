@@ -14,8 +14,8 @@ for (var i = 3; i < nodeArgs.length; i++) {
 }
 
 var BANDS = function () {
-  this.bandsintown = function (search) {
-    var queryURL = 'https://rest.bandsintown.com/artists/' + search + '/events?app_id=codingbootcamp';
+  this.bandsintown = function (band) {
+    var queryURL = 'https://rest.bandsintown.com/artists/' + band + '/events?app_id=codingbootcamp';
     axios
       .get(queryURL)
       .then(function (response) {
