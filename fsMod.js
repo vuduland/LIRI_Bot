@@ -9,10 +9,8 @@ var FS = function () {
       }
 
       var array = data.split(',');
-      var command = 'node' + ' spotifyTest.js ' + array[0] + ' ' + array[1];
+      var command = 'node' + ' spotifyTest.js ' + array[0] + ' ' + array[1] + '\n';
       get.getSong(array[1]);
-      // var command = array;
-      // return command;
       console.log(command);
       fs.appendFile('log.txt', command, function () {
         console.error();
@@ -22,6 +20,5 @@ var FS = function () {
 
   };
 };
-// var f = new FS;
-// f.callFromFile();
+
 module.exports = FS;
