@@ -21,9 +21,7 @@ var BANDS = function () {
     axios
       .get(queryURL)
       .then(function (response) {
-        // var j = JSON.stringify(response);
         console.log(JSON.stringify(response.data[0]) + 'response');
-        // console.log(j + 'j');
         console.log('================================================'),
           console.log('\nVenue: ' + response.data[0].venue.name),
           console.log('\nLocale: ' + response.data[0].venue.city),
@@ -31,22 +29,18 @@ var BANDS = function () {
             '\nDate: ' + moment(response.data[0].datetime).format('LL')
           ),
           console.log('================================================');
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(`\n================================================\nError: ${
+            error.message
+            }`
+          );
+        }
+        console.log(error.config);
       });
-      // .catch(function (error) {
-      //   if (error.response) {
-      //     console.log('\n================================================'),
-      //       console.log('Data: ' + error.response.data),
-      //       console.log('\n================================================'),
-      //       console.log('Status: ' + error.response.status),
-      //       console.log('\n================================================'),
-      //       console.log('Headers: ' + error.response.headers);
-      //   } else if (error.request) {
-      //     console.log('Error: ', error.message);
-      //   }
-      //   console.log(error.config);
-      // });
   };
 };
 
-
 module.exports = BANDS;
+
