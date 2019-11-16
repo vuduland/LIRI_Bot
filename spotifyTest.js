@@ -1,41 +1,39 @@
-/* eslint-disable no-use-before-define */
 /* eslint-disable no-bitwise */
-/* eslint-disable prefer-const */
 require('dotenv').config({ path: '.env' });
-const FS = require('file-system');
-// const GET = require('./spotify-module');
-const OMDB = require('./omdb-module.js');
-const BANDS = require('./bands-module');
+var FS = require('./fs-module');
+var GET = require('./spotify-module');
+var OMDB = require('./omdb-module.js');
+var BANDS = require('./bands-module');
 
-// let getSong = new GET();
-const omdb = new OMDB();
-const bands = new BANDS();
-const Fs = new FS();
+var getSong = new GET();
+var omdb = new OMDB();
+var bands = new BANDS();
+var fs = new FS();
 
-const searchOne = process.argv[2];
-const searchTwo = process.argv[3];
+var searchOne = process.argv[2];
+var searchTwo = process.argv.slice(3).join(' ');
 
 function searchInput(search, search2) {
   switch ((search && search2) || search ^ search2) {
     // search and search2 OR !search and search2 OR search and !search2 === (search && search2) || (!search && search2) || (search && !search2)
     case 'movie-this':
       console.log('test');
-      omdb();
+      omdb.getMovie(search2);
       if (!search) {
         console.log(
           'Missing search parameter; Re-Enter search parameter "movie-this"'
         );
       }
       break;
-    // case 'spotify-this-song':
-    //   console.log('test2');
-    //   GET(search2);
-    //   if (!search) {
-    //     console.log(
-    //       'Missing search parameter; Re-Enter search parameter "spoty-this-song"'
-    //     );
-    // }
-    // break;
+    case 'spotify-this-song':
+      console.log('test2');
+      getSong(search2);
+      if (!search) {
+        console.log(
+          'Missing search parameter; Re-Enter search parameter "spoty-this-song"'
+        );
+    }
+    break;
     case 'omdb-this':
       console.log('test3');
       if (!search) {
@@ -64,14 +62,4 @@ function searchInput(search, search2) {
 }
 searchInput(searchOne, searchTwo);
 
-function callFromFile() {
-  Fs.readFile('random.txt', 'utf8', function(err, data) {
-    if (err) {
-      return console.log(err);
-    }
-    const [array] = data.split(', ');
-    const fSearch = array[0];
-    searchInput(fSearch);
-  });
-}
-console.log(callFromFile());
+
