@@ -28,23 +28,12 @@ var OMDB = function () {
           console.log(`\nPlot: ${resp.data.Plot}`),
           console.log(`\nActors: ${resp.data.Actors}`),
           console.log('================================================');
+      })
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.request);
+        }
       });
-      // .catch(function (error) {
-      //   if (error.response) {
-      //     console.log(`Data:  ${error.response.data}`);
-      //     console.log(`\nStatus: ${error.response.status}`);
-      //     console.log(`\nHeaders: ${error.response.headers}`);
-      //   } else if (error.request) {
-      //     console.log(error.request);
-      //   } else {
-      //     console.log(
-      //       `\n================================================\nError: ${
-      //       error.message
-      //       }`
-      //     );
-      //   }
-      //   console.log(error.config);
-      // });
   };
 };
 module.exports = OMDB;
