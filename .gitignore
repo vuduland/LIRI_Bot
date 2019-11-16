@@ -1,6 +1,5 @@
 /node_modules
 .DS_Store
 .env
-
 homework_instructions.md
-to-do.txt
+to-do.md

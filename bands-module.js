@@ -4,9 +4,8 @@ var moment = require('moment');
 
 var nodeArgs = process.argv;
 var artistName = ' ';
-// var queryURL = `https://rest.bandsintown.com/artists/${artistName}/events?app_id=codingbootcamp`;
+var queryURL = `https://rest.bandsintown.com/artists/${artistName}/events?app_id=codingbootcamp`;
 
-// eslint-disable-next-line no-plusplus
 for (var i = 2; i < nodeArgs.length; i++) {
   if (i > 2 && i < nodeArgs.length) {
     artistName = `${artistName}+${nodeArgs[i]}`;
@@ -14,13 +13,13 @@ for (var i = 2; i < nodeArgs.length; i++) {
     artistName += nodeArgs[i];
   }
 }
-var BANDS = function() {
-  this.bandsintown = function(search) {
-    var queryURL = `https://rest.bandsintown.com/artists/${artistName}/events?app_id=codingbootcamp`;
+var BANDS = function () {
+  this.bandsintown = function (search) {
+
     axios
       .get(queryURL)
-      .then(function(response) {
-        // eslint-disable-next-line no-sequences
+      .then(function (response) {
+
         console.log('================================================'),
           console.log(`\nVenue: ${response.data[0].venue.name}`),
           console.log(`\nLocale: ${response.data[0].venue.city}`),
@@ -29,9 +28,8 @@ var BANDS = function() {
           ),
           console.log('================================================');
       })
-      .catch(function(error) {
+      .catch(function (error) {
         if (error.response) {
-          // eslint-disable-next-line no-sequences
           console.log('\n================================================'),
             console.log(`Data: ${error.response.data}`),
             console.log('\n================================================'),
