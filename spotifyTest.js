@@ -32,6 +32,11 @@ switch (search) {// (search && searchTwo) || search ^ searchTwo
   case 'call-from-file':
     console.log('test4');
     fs.callFromFile();
+
+    // if (command[0] === 'spotify-this-song') {
+    //   get.getSong(commmand[1]);
+    // }
+    //  console.log('node' + ' spotifyTest.js ' + fs.callFromFile() + ' ' + fs.callFromFile());
     break;
   default:
     console.log(
