@@ -15,7 +15,7 @@ var searchOne = process.argv[2];
 var searchTwo = process.argv.slice(3).join(' ');
 
 function searchInput(search, search2) {
-  switch ((search && search2) || search ^ search2) {
+  switch (search) {//(search && search2) || search ^ search2
     // search and search2 OR !search and search2 OR search and !search2 === (search && search2) || (!search && search2) || (search && !search2)
     case 'movie-this':
       console.log('test');
