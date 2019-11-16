@@ -3,18 +3,16 @@ var axios = require('axios');
 var moment = require('moment');
 
 var nodeArgs = process.argv;
-// var artistName = process.argv[3];
+var artistName = " ";
 
-// for (var i = 3; i < nodeArgs.length; i++) {
-//   if (i > 2 && i < nodeArgs.length) {
-//     artistName = artistName + ' ' + nodeArgs[i];
-//   } else {
-//     artistName += nodeArgs[i];
-//   }
-// }
-// console.log(artistName);
+for (var i = 3; i < nodeArgs.length; i++) {
+  if (i > 2 && i < nodeArgs.length) {
+    artistName = artistName + ' ' + nodeArgs[i];
+  } else {
+    artistName += nodeArgs[i];
+  }
+}
 
-// console.log(artistName);
 var BANDS = function () {
   this.bandsintown = function (search) {
     var queryURL = 'https://rest.bandsintown.com/artists/' + search + '/events?app_id=codingbootcamp';
