@@ -8,7 +8,7 @@ var FS = function () {
       var [array] = data.split(',');
       var fsearch = array[0];
       var ssearch = array[1];
-      return fsearch, ssearch;
+      console.log(fsearch, ssearch);
     });
   };
 };

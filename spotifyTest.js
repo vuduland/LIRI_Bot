@@ -1,6 +1,7 @@
 /* eslint-disable no-bitwise */
 require('dotenv').config({ path: '.env' });
-var FS = require('./fs-module');
+// var fss = require('fs');
+var FS = require('./fsMod');
 var GET = require('./spotify-module');
 var OMDB = require('./omdb-module.js');
 var BANDS = require('./bands-module');
@@ -27,25 +28,25 @@ function searchInput(search, search2) {
       break;
     case 'spotify-this-song':
       console.log('test2');
-      getSong(search2);
+      getSong.GetSong(search2);
       if (!search) {
         console.log(
           'Missing search parameter; Re-Enter search parameter "spoty-this-song"'
         );
     }
     break;
-    case 'omdb-this':
+    case 'concert-this':
       console.log('test3');
+      bands.bandsintown(search);
       if (!search) {
         console.log(
           'Missing search parameter; Re-Enter search parameter "omdb-this"'
         );
-        bands();
       }
       break;
     case 'call-from-file':
       console.log('test4');
-      callFromFile();
+      fs.callFromFile();
       if (!search) {
         console.log(
           'Missing search parameter; Re-Enter search parameter "call-from-file"'
@@ -56,7 +57,6 @@ function searchInput(search, search2) {
       console.log(
         'Error: Re-enter search with parameters: "omdb-this", "spotify-this-song", "concert-this" or "call-from-file"'
       );
-      // searchInput();
       break;
   }
 }
