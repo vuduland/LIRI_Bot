@@ -9,10 +9,7 @@ var GET = function () {
   this.getSong = function (query) {
     spotify.search({ type: 'track', query: query }, function (err, data, query) {
       var print = new Print;
-      var quotes = new Quotes;
       var input = data;
-
-      input = quotes.around(query);
       print.start(err, input);
 
     });
@@ -35,29 +32,6 @@ var Print = function (input) {
     console.log(external_url);
     console.log(album);
     console.log('===================================================================================');
-  };
-};
-var Quotes = function () {
-  var nodeArgs = process.argv;
-  this.around = function (query) {
-    var input = query;
-    for (var i = 3; i < nodeArgs.length; i++) {
-      if (i > 2 && i < nodeArgs.length) {
-        input = input + ' ' + nodeArgs[i];
-      } else {
-        input += nodeArgs[i];
-      }
-    }
-    function myGeeks() {
-      var str = "" + input.value() + '"';
-      return str;
-    }
-    var q = String("'");
-    var s = q + String(input) + q;
-    String(s);
-    console.log(s);
-    console.log((input.substr(10) + " <<<<<<<<<<<<<<<<<<<<<<"));
-    return input.substr(10);
   };
 };
 
