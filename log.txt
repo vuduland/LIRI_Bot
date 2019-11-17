@@ -1,5 +1,1 @@
-node spotifyTest.js spotify-this-song "I Want it That Way"
-node spotifyTest.js spotify-this-song "I Want it That Way"
-node spotifyTest.js spotify-this-song "I Want it That Way"
-node spotifyTest.js spotify-this-song "I Want it That Way"
-node spotifyTest.js spotify-this-song "I Want it That Way"
+
