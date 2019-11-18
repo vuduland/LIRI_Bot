@@ -9,7 +9,7 @@ var FS = function () {
       }
 
       var array = data.split(',');
-      var command = 'node' + ' spotifyTest.js ' + array[0] + ' ' + array[1] + '\n';
+      var command = 'node' + ' spotify-this-song ' + array[0] + ' ' + array[1] + '\n';
       get.getSong(array[1]);
       console.log(command);
       fs.appendFile('log.txt', command, function () {
