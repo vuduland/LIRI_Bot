@@ -2,7 +2,7 @@
 
 ## Purpose
 
-### This is a LIRI-Bot (_Language Interpretation and Recognition Interface_). It was made in order to simplify the search for movie, artist, and song data. It is a quick way to get the exact information a user seeks, no more, no less. There is also a _log.txt_ file which the program can write commands to.
+ This is a LIRI-Bot (_Language Interpretation and Recognition Interface_). It was made in order to simplify the search for movie, artist, and song data. It is a quick way to get the exact information a user seeks, no more, no less. There is also a _log.txt_ file which the program can write commands to.
 
 ## Organization
 
