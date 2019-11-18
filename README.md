@@ -29,7 +29,15 @@
 
 ## Technology
 
-Include screenshots, gifs or videos of the app functioning
-Contain a link to a deployed version of the app
-Clearly list the technologies used in the app
-State your role in the app development
+### Technologies used were Node.js, Git Bash Terminal, as well as Axios, DotEnv, File-System, Moment, and Node-Spotify-Api NPM Node modules.
+
+    #### Versions
+    "axios": "^0.19.0",
+    "dotenv": "^8.2.0",
+    "file-system": "^2.2.2",
+    "moment": "^2.24.0",
+    "node-spotify-api": "^1.1.1"
+
+## Role
+
+### Developer
