@@ -1,10 +1,10 @@
 require('dotenv').config();
-var Spotify = require('node-spotify-api');
+var SPOTIFY = require('node-spotify-api');
 var key = require('./keys');
 
-var spotify = new Spotify(key.spotify);
+var spotify = new SPOTIFY(key.spotify);
 
-var GET = function () {
+var Spotify = function () {
 
   this.getSong = function (query) {
     spotify.search({ type: 'track', query: query }, function (err, data, query) {
@@ -35,4 +35,4 @@ var Print = function (input) {
   };
 };
 
-module.exports = GET;
+module.exports = Spotify;

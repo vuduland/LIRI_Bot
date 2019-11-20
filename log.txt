@@ -1,4 +1,2 @@
+node liri spotify-this-song "Ask Me Anything"
 
-node spotify-this-song spotify-this-song "I Want it That Way"
-node spotify-this-song spotify-this-song "I Want it That Way"
-node spotify-this-song spotify-this-song "I Want it That Way"
